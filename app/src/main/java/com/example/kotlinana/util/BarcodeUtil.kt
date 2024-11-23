@@ -1,4 +1,4 @@
-package com.example.kotlinana
+package com.example.kotlinana.util
 
 import android.graphics.Bitmap
 import com.google.zxing.BarcodeFormat
