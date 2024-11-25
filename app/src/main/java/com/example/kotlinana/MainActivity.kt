@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnShare.setOnClickListener {
             try {
-                val bitmap = binding.barcodeImageView.drawToBitmap();
+                val bitmap = ImageUtil.getBitmapFromView(binding.barcodeLinearLayout)
                 val imageUri: Uri = ImageUtil.saveBitmapToFile(this, bitmap)
                 ImageUtil.shareImage(this, imageUri)
             } catch (e: Exception) {

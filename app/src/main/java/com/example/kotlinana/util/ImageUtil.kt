@@ -17,6 +17,19 @@ import java.io.IOException
 class ImageUtil {
     companion object {
 
+        fun getBitmapFromView(view: View): Bitmap {
+            val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+            val canvas = Canvas(returnedBitmap)
+            val bgDrawable = view.background
+            if (bgDrawable != null) {
+                bgDrawable.draw(canvas)
+            } else {
+                canvas.drawColor(Color.WHITE)
+            }
+            view.draw(canvas)
+            return returnedBitmap
+        }
+
         @Throws(IOException::class)
         fun saveBitmapToFile(context: Context, bitmap: Bitmap): Uri {
             val cachePath = File(context.cacheDir, "images")
